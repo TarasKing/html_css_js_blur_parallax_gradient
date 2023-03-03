@@ -1,8 +1,9 @@
 const sliderMain = new Swiper(".slider_main", {
   // Optional parameters
   // without cssMode: true - swiper do not work
-  cssMode: true,
-  freeMode: true,
+  // cssMode: true,
+  // freeMode: true,
+  // speed: 1000,
   centeredSlides: true,
   mousewheel: true,
   parallax: true,
@@ -17,4 +18,40 @@ const sliderMain = new Swiper(".slider_main", {
       spaceBetween: 60,
     },
   },
+});
+
+const sliderBg = new Swiper(".slider_bg", {
+  // Optional parameters
+  // cssMode: true,
+  centeredSlides: true,
+  parallax: true,
+  spaceBetween: 60,
+  slidesPerView: 3.5,
+});
+
+//responsible for the background slider movement
+sliderMain.controller.control = sliderBg;
+
+// document.querySelectorAll(".slider_item").forEach((item) => {
+//   item.addEventListener("click", () => {
+//     item.classList.toggle("activated");
+//   });
+// });
+
+// clicking functionality with checking if the other items have the class "activated":
+
+let clickMe = document.querySelectorAll(".slider_item");
+
+const handleClick = (e) => {
+  e.preventDefault();
+  clickMe.forEach((item) => {
+    if (e.currentTarget !== item) item.classList.remove("activated");
+    else if (e.currentTarget.classList.contains("activated"))
+      e.currentTarget.classList.remove("activated");
+    else e.currentTarget.classList.add("activated");
+  });
+};
+
+clickMe.forEach((item) => {
+  item.addEventListener("click", handleClick);
 });
