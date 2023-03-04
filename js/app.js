@@ -5,6 +5,7 @@ const sliderMain = new Swiper(".slider_main", {
   // freeMode: true,
   // speed: 1000,
   centeredSlides: true,
+  // centeredSlidesBounds: true,
   mousewheel: true,
   parallax: true,
   // slidesPerView: 3.5,
@@ -54,4 +55,12 @@ const handleClick = (e) => {
 
 clickMe.forEach((item) => {
   item.addEventListener("click", handleClick);
+});
+
+let desc = document.querySelector(".description");
+
+sliderMain.on("slideChange", (e) => {
+  sliderMain.activeIndex > 0
+    ? desc.classList.add("hidden")
+    : desc.classList.remove("hidden");
 });

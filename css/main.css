@@ -45,7 +45,7 @@ html {
   will-change: transform;
 }
 .slider_item {
-  max-height: 75vh;
+  max-height: 70vh;
   overflow: hidden;
   /* position: relative; */
   cursor: pointer;
@@ -82,6 +82,36 @@ html {
   z-index: 2;
   transform: rotate(-15deg) scale(1.2);
   box-shadow: rgb(0 0 0 / 0.75) 0 0 0 10000px;
+}
+/* text part of this page */
+
+.description {
+  position: absolute;
+  font-size: calc(var(--size-index) * 0.9);
+  top: 24vw;
+  left: 5vw;
+  max-width: 24vw;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.logo {
+  font-size: calc(var(--size-index) * 3.6);
+  font-weight: 900;
+  display: inline-block;
+  background: linear-gradient(45deg, #ca4928, #4ba298, #fee99e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.description p {
+  opacity: 0.9;
+  transition: transform (var(--transition));
+  transition-duration: 3s;
+}
+.description.hidden {
+  opacity: 0;
+  transform: translateY(5vh);
+}
+.description.hidden p {
+  transform: translateY(2vh);
 }
 
 /* without those parameters, swiper do not work, why? */
