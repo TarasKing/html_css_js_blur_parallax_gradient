@@ -33,12 +33,6 @@ const sliderBg = new Swiper(".slider_bg", {
 //responsible for the background slider movement
 sliderMain.controller.control = sliderBg;
 
-// document.querySelectorAll(".slider_item").forEach((item) => {
-//   item.addEventListener("click", () => {
-//     item.classList.toggle("activated");
-//   });
-// });
-
 // clicking functionality with checking if the other items have the class "activated":
 
 let clickMe = document.querySelectorAll(".slider_item");
